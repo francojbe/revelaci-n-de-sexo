@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial - Evento Exclusivo</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="video-background">
+        <!-- Reemplaza "background-video.mp4" con la ruta de tu video -->
+        <video autoplay muted playsinline id="bgVideo">
+            <source src="VID-20260313-WA0015.mp4" type="video/mp4">
+            Tu navegador no soporta videos.
+        </video>
+        <div class="overlay"></div>
+    </div>
+
+    <main class="content">
+        <div class="glass-card">
+            <header class="header">
+                <span class="badge">¿Niño o Niña?</span>
+                <h1>Revelación de Sexo</h1>
+                <p class="subtitle">Acompaña a mis papis en esta mision</p>
+            </header>
+
+            <section class="event-details">
+                <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Revelación+de+Sexo&dates=20260425T180000Z/20260425T210000Z&details=¿Será+niño+o+niña?+Acompáñanos+a+descubrir+el+gran+misterio.+¡Te+esperamos!&location=Calle+San+José+1974,+Lo+Calvo,+San+Esteban" target="_blank" class="detail-item link">
+                    <span class="icon">📅</span>
+                    <div class="info">
+                        <h3>Fecha</h3>
+                        <p>Sábado, 25 de Abril</p>
+                    </div>
+                </a>
+                <div class="detail-item">
+                    <span class="icon">⏰</span>
+                    <div class="info">
+                        <h3>Hora</h3>
+                        <p>15:00 Horas</p>
+                    </div>
+                </div>
+                <a href="https://www.google.com/maps/search/?api=1&query=Calle+San+Jos%C3%A9+1974,+Lo+Calvo,+San+Esteban" target="_blank" class="detail-item link">
+                    <span class="icon">📍</span>
+                    <div class="info">
+                        <h3>Lugar</h3>
+                        <p>Calle San José #1974, Lo Calvo, San Esteban</p>
+                    </div>
+                </a>
+            </section>
+
+            <section class="countdown">
+                <div class="timer">
+                    <div class="time-block">
+                        <span id="days">00</span>
+                        <label>Días</label>
+                    </div>
+                    <div class="time-block">
+                        <span id="hours">00</span>
+                        <label>Horas</label>
+                    </div>
+                    <div class="time-block">
+                        <span id="minutes">00</span>
+                        <label>Minutos</label>
+                    </div>
+                    <div class="time-block">
+                        <span id="seconds">00</span>
+                        <label>Segundos</label>
+                    </div>
+                </div>
+            </section>
+
+            <div class="event-gif">
+                <img src="Sticker by The Boss Baby.gif" alt="Invitación Logo" id="invitationGif">
+            </div>
+
+            <footer class="actions">
+                <button class="btn-primary" id="rsvpBtn">Confirmar Asistencia</button>
+                <p class="footer-note">Por favor, confirma antes del 20 de Marzo</p>
+            </footer>
+        </div>
+    </main>
+
+    <button id="unmuteBtn" class="unmute-btn">🔊 Activar Sonido</button>
+
+    <!-- Modal de RSVP -->
+    <div id="rsvpModal" class="modal">
+        <div class="modal-content glass-card-modal">
+            <span class="close-modal" id="closeModal">&times;</span>
+            <h2>Confirmar Asistencia</h2>
+            <p>Por favor, ayúdanos a organizar mejor el evento.</p>
+            
+            <form id="rsvpForm">
+                <div class="form-group">
+                    <label for="name">Nombre Completo</label>
+                    <input type="text" id="name" name="name" placeholder="Ej: Juan Pérez" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">¿Cuántos vienen contigo?</label>
+                    <select id="guests" name="guests">
+                        <option value="1">Voy solo/a (1)</option>
+                        <option value="2">2 personas</option>
+                        <option value="3">3 personas</option>
+                        <option value="4">4 personas</option>
+                        <option value="5">Más de 5</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>¿Cuál es tu predicción?</label>
+                    <div class="gender-predict">
+                        <label class="predict-option">
+                            <input type="radio" name="prediction" value="Niño" required>
+                            <span class="radio-card blue">👶 Niño</span>
+                        </label>
+                        <label class="predict-option">
+                            <input type="radio" name="prediction" value="Niña" required>
+                            <span class="radio-card pink">👧 Niña</span>
+                        </label>
+                    </div>
+                </div>
+
+                <button type="submit" class="btn-primary submit-btn">Enviar Confirmación</button>
+            </form>
+
+            <div id="rsvpSuccess" class="success-message" style="display: none;">
+                <div class="success-icon">✅</div>
+                <h3>¡Registro Exitoso!</h3>
+                <p id="successText">Tu asistencia ha sido confirmada. ¡Nos vemos pronto!</p>
+                <button class="btn-primary" onclick="document.getElementById('rsvpModal').classList.remove('show')">Cerrar</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+</body>
+</html>
