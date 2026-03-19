@@ -1,5 +1,5 @@
 // Configuración de la fecha del evento (Año, Mes (0-11), Día, Hora, Minutos)
-const eventDate = new Date("April 25, 2026 15:00:00").getTime();
+const eventDate = new Date("April 11, 2026 15:30:00").getTime();
 
 function updateCountdown() {
     const now = new Date().getTime();
