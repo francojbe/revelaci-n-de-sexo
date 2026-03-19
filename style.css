@@ -44,7 +44,7 @@ body {
 .video-background video {
     width: 100%;
     height: 100%;
-    object-fit: contain; /* Cambiado a contain para ver el video completo sin recortes */
+    object-fit: cover; /* Cambiado a cover para que el video llene toda la pantalla sin franjas negras */
 }
 
 .overlay {

@@ -33,23 +33,11 @@ const video = document.getElementById("bgVideo");
 const content = document.querySelector(".content");
 
 function adjustContentWidth() {
-    const videoRatio = video.videoWidth / video.videoHeight;
-    const windowRatio = window.innerWidth / window.innerHeight;
-    
-    let actualWidth, actualHeight;
-    
-    if (windowRatio > videoRatio) {
-        // La ventana es más ancha que el video (franjas laterales)
-        actualHeight = window.innerHeight;
-        actualWidth = window.innerHeight * videoRatio;
-    } else {
-        // La ventana es más alta que el video (franjas arriba/abajo)
-        actualWidth = window.innerWidth;
-        actualHeight = window.innerWidth / videoRatio;
-    }
-    
-    content.style.width = `${actualWidth}px`;
-    content.style.height = `${actualHeight}px`;
+    // Ya que el video ahora usa object-fit: cover, el contenido debe usar todo el espacio de la ventana
+    // para asegurar que la invitación se vea grande y centrada en móviles.
+    content.style.width = '100%';
+    content.style.height = '100%';
+    console.log("Ajuste de contenido a pantalla completa");
 }
 
 let isRevealed = false;
