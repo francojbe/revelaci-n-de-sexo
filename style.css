@@ -44,15 +44,27 @@ body {
     align-items: center;
 }
 
-.video-background video {
-    position: fixed;
-    top: 0;
-    left: 0;
+.video-background video.bg-blur {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.1); /* Escala para asegurar que no se vean bordes */
     width: 100vw !important;
-    height: 100vh !important;
-    height: calc(var(--vh, 1vh) * 100) !important;
     height: 100dvh !important;
-    object-fit: cover !important; /* Forzado a cover con !important para asegurar la visualización inmersiva total en móviles */
+    object-fit: cover !important;
+    filter: blur(20px) brightness(0.6); /* Borroso y oscuro para actuar como fondo ambiental */
+    z-index: 1;
+}
+
+.video-background video.bg-main {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw !important;
+    height: 100dvh !important;
+    object-fit: contain !important; /* Contain permite que se vea ENTERO sin recortes */
+    z-index: 2;
 }
 
 .overlay {

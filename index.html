@@ -11,8 +11,12 @@
 </head>
 <body>
     <div class="video-background">
-        <!-- Reemplaza "background-video.mp4" con la ruta de tu video -->
-        <video autoplay muted playsinline id="bgVideo">
+        <!-- El video en modo cover y blurreo extremo para que actúe como fondo dinámico sin franjas negras -->
+        <video autoplay muted playsinline loop class="bg-blur" id="bgBlurVideo">
+            <source src="video-nuevo.mp4" type="video/mp4">
+        </video>
+        <!-- El video principal ajustado (contain) para que se vea completo sin recortes -->
+        <video autoplay muted playsinline id="bgVideo" class="bg-main">
             <source src="video-nuevo.mp4" type="video/mp4">
             Tu navegador no soporta videos.
         </video>

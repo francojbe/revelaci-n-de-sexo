@@ -61,6 +61,12 @@ function revealContent() {
     // Pausar el video en el último frame y asegurar que no se reinicie
     video.pause();
     video.currentTime = video.duration - 0.1; // Mantener el último frame visible
+
+    const bgBlur = document.getElementById("bgBlurVideo");
+    if (bgBlur) {
+        bgBlur.pause();
+        bgBlur.currentTime = bgBlur.duration - 0.1;
+    }
     
     // Ocultar botón de sonido si aún existe
     const unmuteBtn = document.getElementById("unmuteBtn");
