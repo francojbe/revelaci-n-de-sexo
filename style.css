@@ -60,9 +60,21 @@ body {
 }
 
 @keyframes slow-glow {
-    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); border-color: var(--glass-border); }
-    50% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: var(--accent-color); }
-    100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); border-color: var(--glass-border); }
+    0% { 
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); 
+        border-color: var(--glass-border);
+        transform: scale(1);
+    }
+    50% { 
+        box-shadow: 0 0 25px rgba(212, 175, 55, 0.7); 
+        border-color: var(--accent-color);
+        transform: scale(1.03); 
+    }
+    100% { 
+        box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); 
+        border-color: var(--glass-border);
+        transform: scale(1);
+    }
 }
 
 .unmute-btn {
