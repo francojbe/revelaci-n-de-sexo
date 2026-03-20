@@ -59,27 +59,37 @@ body {
     background: transparent; /* Eliminamos el oscurecimiento */
 }
 
+@keyframes slow-glow {
+    0% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); border-color: var(--glass-border); }
+    50% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.4); border-color: var(--accent-color); }
+    100% { box-shadow: 0 0 5px rgba(255, 255, 255, 0.1); border-color: var(--glass-border); }
+}
+
 .unmute-btn {
-    position: fixed; /* Cambiado a fixed para asegurar posición independiente */
-    top: 20px;
+    position: fixed;
+    bottom: 30px;
     right: 20px;
-    z-index: 1000; /* Z-index muy alto para asegurar que sea clickable */
-    background: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.6);
     color: white;
-    border: 1px solid rgba(212, 175, 55, 0.5);
-    padding: 10px 20px;
-    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
     cursor: pointer;
-    font-size: 0.9rem;
+    font-size: 1.2rem;
     backdrop-filter: blur(10px);
-    transition: all 0.3s ease;
+    -webkit-backdrop-filter: blur(10px);
     display: flex;
     align-items: center;
-    gap: 8px;
+    justify-content: center;
+    transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: slow-glow 3s infinite ease-in-out;
 }
 
 .unmute-btn:hover {
-    background: rgba(212, 175, 55, 0.8);
+    transform: scale(1.1);
+    background: var(--accent-color);
     color: black;
 }
 
@@ -142,22 +152,27 @@ body {
 
 .detail-item {
     flex: 1;
-    padding: 1vh 5px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 10px;
-    min-width: 0; /* Permite que el flex-item se achique más que su contenido */
-    word-wrap: break-word; /* Rompe palabras largas si es necesario */
+    padding: 1.2vh 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid transparent;
+    border-radius: 12px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
     color: inherit;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease-out;
+}
+
+.detail-item.link {
+    background: rgba(255, 255, 255, 0.07);
+    animation: slow-glow 4s infinite ease-in-out;
 }
 
 .detail-item.link:hover {
-    background: rgba(255, 255, 255, 0.15);
-    transform: translateY(-3px);
+    background: rgba(212, 175, 55, 0.1);
+    transform: translateY(-5px);
     border: 1px solid var(--accent-color);
 }
 
@@ -189,10 +204,11 @@ body {
 }
 
 .btn-primary {
-    padding: clamp(6px, 1.5vh, 12px) 25px;
-    font-size: clamp(0.8rem, 2vh, 1rem);
+    padding: clamp(8px, 1.8vh, 14px) 30px;
+    font-size: clamp(0.85rem, 2.2vh, 1.1rem);
     width: auto;
     max-width: 90%;
+    animation: slow-glow 3.5s infinite ease-in-out;
 }
 
 .footer-note { margin-top: 1vh; font-size: 0.7rem; }
