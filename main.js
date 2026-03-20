@@ -1,6 +1,16 @@
 // Configuración de la fecha del evento (Año, Mes (0-11), Día, Hora, Minutos)
 const eventDate = new Date("April 11, 2026 15:30:00").getTime();
 
+// Función para setear el VH real en móviles (evitar que la barra del navegador corte el diseño)
+function calculateVH() {
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+
+calculateVH();
+window.addEventListener('resize', calculateVH);
+window.addEventListener('orientationchange', calculateVH);
+
 function updateCountdown() {
     const now = new Date().getTime();
     const distance = eventDate - now;
